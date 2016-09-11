@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.2.11
+-- version 4.5.2
 -- http://www.phpmyadmin.net
 --
--- Host: 127.0.0.1
--- Generation Time: Aug 07, 2016 at 06:03 PM
--- Server version: 5.6.21
--- PHP Version: 5.6.3
+-- Host: localhost
+-- Generation Time: Sep 11, 2016 at 10:41 PM
+-- Server version: 10.1.13-MariaDB
+-- PHP Version: 5.5.37
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -14,7 +14,7 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Database: `atms`
@@ -26,13 +26,13 @@ SET time_zone = "+00:00";
 -- Table structure for table `attendance`
 --
 
-CREATE TABLE IF NOT EXISTS `attendance` (
-`Index` bigint(20) NOT NULL,
+CREATE TABLE `attendance` (
+  `Index` bigint(20) NOT NULL,
   `date` date NOT NULL,
   `subid` int(5) NOT NULL,
   `regno` int(11) NOT NULL,
   `presence` tinyint(1) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `attendance`
@@ -86,7 +86,7 @@ INSERT INTO `attendance` (`Index`, `date`, `subid`, `regno`, `presence`) VALUES
 -- Table structure for table `example`
 --
 
-CREATE TABLE IF NOT EXISTS `example` (
+CREATE TABLE `example` (
   `id` int(11) NOT NULL DEFAULT '0',
   `name` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -97,7 +97,7 @@ CREATE TABLE IF NOT EXISTS `example` (
 -- Table structure for table `students`
 --
 
-CREATE TABLE IF NOT EXISTS `students` (
+CREATE TABLE `students` (
   `name` varchar(20) NOT NULL,
   `regno` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -118,7 +118,7 @@ INSERT INTO `students` (`name`, `regno`) VALUES
 -- Table structure for table `subjects`
 --
 
-CREATE TABLE IF NOT EXISTS `subjects` (
+CREATE TABLE `subjects` (
   `username` varchar(15) NOT NULL,
   `subid` int(5) NOT NULL,
   `subname` varchar(15) NOT NULL
@@ -141,7 +141,7 @@ INSERT INTO `subjects` (`username`, `subid`, `subname`) VALUES
 -- Table structure for table `teachers`
 --
 
-CREATE TABLE IF NOT EXISTS `teachers` (
+CREATE TABLE `teachers` (
   `name` varchar(15) NOT NULL,
   `username` varchar(15) NOT NULL,
   `password` varchar(15) NOT NULL
@@ -166,25 +166,26 @@ INSERT INTO `teachers` (`name`, `username`, `password`) VALUES
 -- Indexes for table `attendance`
 --
 ALTER TABLE `attendance`
- ADD PRIMARY KEY (`Index`), ADD UNIQUE KEY `Index` (`Index`);
+  ADD PRIMARY KEY (`Index`),
+  ADD UNIQUE KEY `Index` (`Index`);
 
 --
 -- Indexes for table `example`
 --
 ALTER TABLE `example`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `students`
 --
 ALTER TABLE `students`
- ADD UNIQUE KEY `regno` (`regno`);
+  ADD UNIQUE KEY `regno` (`regno`);
 
 --
 -- Indexes for table `subjects`
 --
 ALTER TABLE `subjects`
- ADD PRIMARY KEY (`subid`);
+  ADD PRIMARY KEY (`subid`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -194,7 +195,7 @@ ALTER TABLE `subjects`
 -- AUTO_INCREMENT for table `attendance`
 --
 ALTER TABLE `attendance`
-MODIFY `Index` bigint(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=41;
+  MODIFY `Index` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
