@@ -1,2 +1,5 @@
-# Attendance-Management-System
-A Portal for students to check their attendance and teachers to update presence of students in their respective days of classes
+Attendance_Tracker
+==================
+
+A web application which can be used by students to track their attendance and also inform the 
+student when there is shortage of attendance.
